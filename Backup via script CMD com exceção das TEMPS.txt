@@ -1,0 +1,1 @@
+"C:\Program Files\PostgreSQL\9.0\bin\pg_dump.exe" --host=localhost --username "postgres" --role "ALTERDATA_GROUP_NOME_DA_BASE" --format custom --exclude-schema=temp --blobs --verbose --file="C:\000NOME_DO_BACKUP000.backup_postgresql" -F c "NOME_DA_BASE" 
