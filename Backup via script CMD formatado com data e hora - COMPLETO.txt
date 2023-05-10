@@ -1,0 +1,13 @@
+set PGUSER=postgres
+set PGPASSWORD=#abc123#
+@echo off
+for /f "tokens=2 delims==" %%a in ('wmic OS Get localdatetime /value') do set "dt=%%a"
+set "YY=%dt:~2,2%" & set "YYYY=%dt:~0,4%" & set "MM=%dt:~4,2%" & set "DD=%dt:~6,2%"
+set "HH=%dt:~8,2%" & set "Min=%dt:~10,2%" & set "Sec=%dt:~12,2%"
+set "datestamp=%YYYY%%MM%%DD%" & set "timestamp=%HH%%Min%%Sec%"
+set "fullstamp=%YYYY%_%MM%_%DD%_%HH%_%Min%_%Sec%"
+echo datestamp: "%datestamp%"
+echo timestamp: "%timestamp%"
+echo fullstamp: "%fullstamp%"
+echo datestr is %datestr%
+"C:\Program Files\PostgreSQL\9.6\bin\pg_dump.exe" --host=localhost --username "postgres" --role "ALTERDATA_GROUP_NOME_DA_BASE" --format custom --blobs --verbose --file="%userprofile%\Desktop\%fullstamp%.backup_postgresql" -F c "NOME_DA_BASE"
