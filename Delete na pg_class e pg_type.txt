@@ -1,0 +1,11 @@
+delete from pg_class where relname='tabela';
+delete from pg_type where typname='tabela';
+
+delete from pg_class where relname='sequenciador';
+delete from pg_type where typname='sequenciador';
+
+delete from pg_class where relname='index';
+delete from pg_type where typname='index';
+
+delete from pg_class where relname='Chave_primária';
+delete from pg_type where typname='Chave_primária';
